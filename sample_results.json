@@ -1,0 +1,238 @@
+{
+  "url": {
+    "uri": "http://sydlawrence.com"
+  },
+  "processTime": 1.067,
+  "machine": "b13d9b7d56699835e00e9023cb81ed7122b71672395528b3e6a93aafd12f2d8a",
+  "results": {
+    "browserDetection": {
+      "testName": "browserDetection",
+      "passed": false,
+      "data": {
+        "javascript": {
+          "passed": false,
+          "data": [{
+            "passed": false,
+            "pattern": "navigator.appVersion",
+            "lineNumber": 553,
+            "url": "js/libs/iscroll-lite.js?v=1"
+          }, {
+            "passed": false,
+            "pattern": "navigator.userAgent",
+            "lineNumber": 1,
+            "url": "js/script.js?v=7"
+          }]
+        },
+        "comments": {
+          "passed": true
+        }
+      }
+    },
+    "cssprefixes": {
+      "testName": "cssprefixes",
+      "passed": false,
+      "data": [{
+        "cssFile": "http://sydlawrence.com/css/style.css?v=3",
+        "selectors": [{
+          "selector": "input:valid",
+          "lineNumber": 65,
+          "styles": [
+            "Missing standard gradient"
+          ]
+        }]
+      }, {
+        "cssFile": "http://sydlawrence.com/css/screen.css?v=4",
+        "selectors": [{
+          "selector": "body",
+          "lineNumber": 1018,
+          "styles": [
+            "Missing standard gradient"
+          ]
+        }]
+      }]
+    },
+    "edge": {
+      "testName": "edge",
+      "passed": true,
+      "data": {
+        "lineNumber": 1,
+        "mode": [
+          "html5"
+        ]
+      }
+    },
+    "jslibs": {
+      "testName": "jslibs",
+      "url": "http://sydlawrence.com/",
+      "passed": false,
+      "data": [{
+        "name": "jQuery",
+        "needsUpdate": true,
+        "minVersion": "1.6.4",
+        "version": "1.5.2",
+        "url": "http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js",
+        "lineNumber": 918
+      }]
+    },
+    "pluginfree": {
+      "testName": "pluginfree",
+      "passed": true,
+      "data": []
+    },
+    "markup": {
+      "testName": "markup",
+      "passed": true,
+      "data": [{
+        "element": "div",
+        "threshold": 0.9,
+        "edgeCount": 88,
+        "chromeCount": 88,
+        "passed": true
+      }, {
+        "element": "canvas",
+        "threshold": 0.8,
+        "edgeCount": 0,
+        "chromeCount": 0,
+        "passed": true
+      }, {
+        "element": "a",
+        "threshold": 0.8,
+        "edgeCount": 199,
+        "chromeCount": 199,
+        "passed": true
+      }, {
+        "element": "p",
+        "threshold": 0.7,
+        "edgeCount": 16,
+        "chromeCount": 16,
+        "passed": true
+      }, {
+        "element": "h1",
+        "threshold": 0.8,
+        "edgeCount": 7,
+        "chromeCount": 7,
+        "passed": true
+      }, {
+        "element": "h2",
+        "threshold": 0.8,
+        "edgeCount": 7,
+        "chromeCount": 7,
+        "passed": true
+      }, {
+        "element": "h3",
+        "threshold": 0.8,
+        "edgeCount": 3,
+        "chromeCount": 3,
+        "passed": true
+      }, {
+        "element": "h4",
+        "threshold": 0.8,
+        "edgeCount": 50,
+        "chromeCount": 50,
+        "passed": true
+      }, {
+        "element": "ol",
+        "threshold": 0.8,
+        "edgeCount": 0,
+        "chromeCount": 0,
+        "passed": true
+      }, {
+        "element": "ul",
+        "threshold": 0.8,
+        "edgeCount": 7,
+        "chromeCount": 7,
+        "passed": true
+      }, {
+        "element": "li",
+        "threshold": 0.8,
+        "edgeCount": 97,
+        "chromeCount": 97,
+        "passed": true
+      }, {
+        "element": "table",
+        "threshold": 0.8,
+        "edgeCount": 0,
+        "chromeCount": 0,
+        "passed": true
+      }, {
+        "element": "tr",
+        "threshold": 0.8,
+        "edgeCount": 0,
+        "chromeCount": 0,
+        "passed": true
+      }, {
+        "element": "th",
+        "threshold": 0.8,
+        "edgeCount": 0,
+        "chromeCount": 0,
+        "passed": true
+      }, {
+        "element": "td",
+        "threshold": 0.8,
+        "edgeCount": 0,
+        "chromeCount": 0,
+        "passed": true
+      }, {
+        "element": "img",
+        "threshold": 0.9,
+        "edgeCount": 3,
+        "chromeCount": 3,
+        "passed": true
+      }, {
+        "element": "span",
+        "threshold": 0.5,
+        "edgeCount": 0,
+        "chromeCount": 0,
+        "passed": true
+      }, {
+        "element": "form",
+        "threshold": 0.8,
+        "edgeCount": 0,
+        "chromeCount": 0,
+        "passed": true
+      }, {
+        "element": "input",
+        "threshold": 0.8,
+        "edgeCount": 0,
+        "chromeCount": 0,
+        "passed": true
+      }, {
+        "element": "textarea",
+        "threshold": 0.8,
+        "edgeCount": 0,
+        "chromeCount": 0,
+        "passed": true
+      }, {
+        "element": "button",
+        "threshold": 0.8,
+        "edgeCount": 0,
+        "chromeCount": 0,
+        "passed": true
+      }, {
+        "element": "video",
+        "threshold": 0.8,
+        "edgeCount": 0,
+        "chromeCount": 0,
+        "passed": true
+      }, {
+        "element": "audio",
+        "threshold": 0.8,
+        "edgeCount": 0,
+        "chromeCount": 0,
+        "passed": true
+      }, {
+        "element": "object",
+        "threshold": 0.8,
+        "edgeCount": 0,
+        "chromeCount": 0,
+        "passed": true
+      }, {
+        "element": "embed",
+        "threshold": 0.8,
+        "edgeCount": 0,
+        "chromeCount": 0,
+        "passed": true
+      }]
+    }
+  }
+}
