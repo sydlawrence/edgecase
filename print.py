@@ -19,6 +19,9 @@ port = serial.Serial(port='/dev/ttyAMA0', baudrate=19200, parity=serial.PARITY_N
 port.open()
 port.flushOutput()
 
+
+port.write(b'\x1B\x21\x01');
+
 port.write(toPrint);
 
 port.write('\n\n\n\n');

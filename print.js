@@ -5,16 +5,6 @@ var actualPrint = true;
 module.exports.print = function(str) {
   str += '\n\n\nThanks for popping by!\nFind out more at\nhttp://modern.ie';
   str += '\n\n\n';
-  str += ''+
-'   _       _--\"\"--_ \n'+
-'     \" --\"\"   |    |\n'+
-'   \" . _|     |    |\n'+
-'   _    |  _--\"\"--_|\n'+
-'     \" --\"\"   |    |\n'+
-'   \" . _|     |    |\n'+
-'   _    |  _--\"\"--_|\n'+
-'     \" --\"\"         \n';
-
 
   if (actualPrint) {
     var cmd = 'python print.py "' + str + '"';
@@ -27,7 +17,5 @@ module.exports.print = function(str) {
     console.log(str);
   }
 };
-
-module.exports.print('hi there');
 
 
