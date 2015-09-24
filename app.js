@@ -1,5 +1,5 @@
 var api = require('./api');
-
+var printer = require('./print');
 var stdin = process.stdin;
 
 // without this, we would only get streams once enter is pressed
@@ -60,6 +60,7 @@ var formatTestFail = function(test) {
 };
 
 var sendTest = function() {
+  var toPrint = '';
   console.log('RUNNING TESTS on ' + typed);
   var isHTTPS = false;
   api.test(typed, isHTTPS, function(d) {
@@ -67,15 +68,17 @@ var sendTest = function() {
     var iterator = 1;
     for (var i in d.results) {
       if (d.results[i].passed) {
-        process.stdout.write('\n\nTEST ' + iterator + ' PASSED (' + i + ')\n');
+        toPrint += '\n\nTEST ' + iterator + ' PASSED (' + i + ')\n';
       }
       else {
-        process.stdout.write('\n\nTEST ' + iterator + ' FAILED (' + i + ')\n');
-        process.stdout.write(formatTestFail(d.results[i]));
+        toPrint += '\n\nTEST ' + iterator + ' FAILED (' + i + ')\n';
+        toPrint += formatTestFail(d.results[i]);
       }
       iterator++;
     }
+
     console.log('COMPLETED TESTS');
+    printer.print(toPrint);
     typed = '';
   });
 };
