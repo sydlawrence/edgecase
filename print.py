@@ -10,4 +10,6 @@ port.flushOutput()
 
 port.write('hi there!\n');
 
+port.write('\n\n\n\n');
+
 port.close();
