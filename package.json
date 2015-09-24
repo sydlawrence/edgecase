@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "request": "^2.63.0"
+    "request": "^2.63.0",
+    "serialport": "^1.7.4"
   }
 }
