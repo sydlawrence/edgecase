@@ -5,7 +5,7 @@ var actualPrint = true;
 module.exports.print = function(str) {
   str += '\n\n\nThanks for popping by!\nFind out more at http://modern.ie';
   str += '\n\n\n';
-  str = ''+
+  str += ''+
 '   _       _--\"\"--_ \n'+
 '     \" --\"\"   |    |\n'+
 '   \" . _|     |    |\n'+
