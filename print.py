@@ -8,7 +8,7 @@ port = serial.Serial(port='/dev/ttyAMA0', baudrate=19200, parity=serial.PARITY_N
 port.open()
 port.flushOutput()
 
-port.write('hi there!\n');
+port.write('hi there! hi there! hi there! hi there! hi there! hi there! hi there! hi there! \n');
 
 port.write('\n\n\n\n');
 
