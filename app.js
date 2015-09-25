@@ -1,8 +1,5 @@
 var exec = require('child_process').exec;
 
-var TWEEN = require('./tween');
-
-
 var pythonExec = function(str, arg) {
   var cmd = 'python ' + __dirname + '/' + str + '.py "' + arg + '"';
   exec(cmd, function(error, stdout, stderr) {
@@ -11,18 +8,24 @@ var pythonExec = function(str, arg) {
 };
 
 var fadeLights = function(start, end, timeout, cb) {
-  var tween = new TWEEN.Tween( { strength: start } )
-    .to( { strength: end }, timeout )
-    .easing( TWEEN.Easing.Elastic.InOut )
-    .onUpdate( function () {
-      pythonExec('lights', this.strength);
-    } )
-    .start();
-  if (cb) {
+  var begin = (new Date()).getTime();
+  var step = (end - start) / (timeout / 10);
+  strength = start;
+  var loop = function() {
+    pythonExec('lights', strength);
+    if (strength >= end) {
+      if (cb) {
+        cb();
+      }
+      return;
+    }
+    strength += step;
     setTimeout(function() {
-      cb();
-    }, timeout);
+      loop();
+    }, 10);
   }
+
+  loop();
 };
 
 var displayOnScreen = function(str) {

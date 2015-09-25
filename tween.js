@@ -1,7 +1,9 @@
+var current = (new Date()).getTime();
+
 var window = {
   performance: {
     now: function() {
-      return (new Date()).getTime();
+      return (new Date()).getTime() - current;
     }
   }
 };
