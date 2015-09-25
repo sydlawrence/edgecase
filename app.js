@@ -1,6 +1,6 @@
 var exec = require('child_process').exec;
 
-var TWEEN = require('tween.js');
+var TWEEN = require('./tween');
 
 
 var pythonExec = function(str, arg) {

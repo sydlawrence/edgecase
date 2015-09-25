@@ -2,6 +2,7 @@
   "dependencies": {
     "request": "^2.63.0",
     "serialport": "^1.7.4",
+    "shifty": "^1.5.1",
     "tween.js": "^15.0.0"
   }
 }
