@@ -118,7 +118,7 @@ var sendTest = function() {
 };
 
 startInitSequence = function() {
-  displayOnScreen('Initiating');
+  displayOnScreen('Initialising');
   pythonExec('smoke', 10);
 
   setTimeout(function() {
@@ -172,6 +172,9 @@ startInitSequence = function() {
     if (passed === 6) {
       msg = 'Perfecto';
     }
+    if (passed === 5) {
+      msg = 'So close';
+    }
     if (passed < 3) {
       msg = 'Down right awful';
     }
@@ -189,7 +192,7 @@ startInitSequence = function() {
 
 var resetTests = function() {
   typed = '';
-  displayOnScreen('Hello... I am Admiral Edge Case! Begin.');
+  displayOnScreen('Hello... I am Admiral Edge Case! Begin');
 }
 
 var displayString = function() {
