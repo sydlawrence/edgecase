@@ -70,6 +70,15 @@ var formatTestFail = function(test) {
 
       }
       break;
+    case 'edge':
+      err += 'There is an issue with this website that could force an old document mode intended for older versions of Internet Explorer. We suggest you develop one code base for all modern browsers including Microsoft Edge and implement feature detection for older browsers.\n';
+      break;
+    case 'markup':
+      err += 'All browsers should see the same markup.\n';
+      break;
+    case 'pluginfree':
+      err += 'You are using outdated plugins. We would recommended using cross browser HTML5 code rather than than plugins.\n';
+      break;
     default:
       err = JSON.stringify(test.data);
   }
