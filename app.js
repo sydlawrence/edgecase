@@ -70,10 +70,12 @@ var sendTest = function() {
   api.test(typed, isHTTPS, function(d, isError) {
     if (isError) {
       displayOnScreen('No internet?');
+      typed = '';
       return;
     }
     if (d.message) {
       displayOnScreen('Not a valid URL');
+      typed = '';
       return;
     }
     // console.log(d);
