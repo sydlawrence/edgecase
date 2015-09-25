@@ -223,9 +223,10 @@ stdin.on( 'data', function( key ){
   setTimeout(function() {
     pythonExec('lights', 0);
   }, 500);
-  if (typed.length >= 40) {
+  if (typed.length >= 40 || key === '#') {
     return;
   }
+
   typed += key;
   displayString();
 });
