@@ -3,7 +3,7 @@ var exec = require('child_process').exec;
 var displayOnScreen = function(str) {
   var cmd = 'python ' + __dirname + '/screen.py "' + str + '"';
   exec(cmd, function(error, stdout, stderr) {
-    console.log(stdout);
+    process.stdout.write(stdout);
   });
   process.stdout.write( str + '\n' );
 }
