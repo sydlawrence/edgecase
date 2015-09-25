@@ -2,6 +2,7 @@
 
 import smbus
 import time
+import sys
 
 bus = smbus.SMBus(1)
 screen_addr = 0x04
