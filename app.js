@@ -11,6 +11,9 @@ var pythonExec = function(str, arg) {
 };
 
 var displayOnScreen = function(str) {
+  if (str.length > 40) {
+    str = str.substring(0, 39);
+  }
   pythonExec('screen', str);
   process.stdout.write( str + '\n' );
 };
@@ -193,7 +196,9 @@ stdin.on( 'data', function( key ){
   setTimeout(function() {
     pythonExec('lights', 0);
   }, 500);
-
+  if (typed.length >= 40) {
+    return;
+  }
   typed += key;
   displayString();
 });
