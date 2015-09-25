@@ -5,8 +5,6 @@ import time
 
 bus = smbus.SMBus(1)
 screen_addr = 0x04
-smoke_addr = 0x08
-light_addr = 0x0C
 
 toPrint = ''
 

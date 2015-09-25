@@ -1,12 +1,34 @@
 var exec = require('child_process').exec;
 
-var displayOnScreen = function(str) {
-  var cmd = 'python ' + __dirname + '/screen.py "' + str + '"';
+var TWEEN = require('tween.js');
+
+
+var pythonExec = function(str, arg) {
+  var cmd = 'python ' + __dirname + '/' + str + '.py "' + arg + '"';
   exec(cmd, function(error, stdout, stderr) {
     process.stdout.write(stdout);
   });
+};
+
+var fadeLights = function(start, end, timeout, cb) {
+  var tween = new TWEEN.Tween( { strength: start } )
+    .to( { strength: end }, timeout )
+    .easing( TWEEN.Easing.Elastic.InOut )
+    .onUpdate( function () {
+      pythonExec('lights', this.strength);
+    } )
+    .start();
+  if (cb) {
+    setTimeout(function() {
+      cb();
+    }, timeout);
+  }
+};
+
+var displayOnScreen = function(str) {
+  pythonExec('screen', str);
   process.stdout.write( str + '\n' );
-}
+};
 
 var api = require('./api');
 var printer = require('./print');
@@ -73,6 +95,7 @@ var sendTest = function() {
   var toPrint = '';
   console.log('RUNNING TESTS on ' + typed);
   var isHTTPS = false;
+  pythonExec('smoke', 10);
   api.test(typed, isHTTPS, function(d, isError) {
     if (isError) {
       displayOnScreen('No internet?');
@@ -132,6 +155,11 @@ stdin.on( 'data', function( key ){
     return;
   }
 
+  pythonExec('lights', 127);
+  setTimeout(function() {
+    pythonExec('lights', 0);
+  }, 500);
+
   typed += key;
   displayString();
 
@@ -139,3 +167,7 @@ stdin.on( 'data', function( key ){
 
 
 displayOnScreen('Ready...');
+
+fadeLights(0, 128, 3000, function() {
+  fadeLights(128, 0, 3000);
+});

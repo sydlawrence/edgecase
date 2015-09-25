@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "request": "^2.63.0",
-    "serialport": "^1.7.4"
+    "serialport": "^1.7.4",
+    "tween.js": "^15.0.0"
   }
 }
