@@ -16,7 +16,8 @@ for arg in sys.argv:
 print "updating display"
 for c in bytearray(toPrint):
         bus.write_byte(screen_addr, c)
-bus.write_byte(screen_addr, '#')
+
+bus.write_byte(screen_addr, "#")
 
 
 print toPrint
