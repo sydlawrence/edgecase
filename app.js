@@ -85,14 +85,21 @@ var sendTest = function() {
   error = '';
   passed = 0;
   var isHTTPS = false;
-  if (typed === 'microsoft.com') {
+  if (typed.toLowerCase() === 'microsoft.com') {
     displayOnScreen('You cheeky scoundrel');
     setTimeout(function() {
       resetTests();
     }, 5000);
     return;
   }
-  if (typed === 'help') {
+  if (typed.toLowerCase() === 'hello') {
+    displayOnScreen('Is it me you are looking for');
+    setTimeout(function() {
+      resetTests();
+    }, 5000);
+    return;
+  }
+  if (typed.toLowerCase() === 'help') {
     displayOnScreen('It\'s simple, just enter a domain');
     setTimeout(function() {
       resetTests();
@@ -121,7 +128,7 @@ var sendTest = function() {
     }, 15000);
     return;
   }
-  if (typed === 'wemakeawesomesh.it') {
+  if (typed.toLowerCase() === 'wemakeawesomesh.it') {
     displayOnScreen('They made me');
     setTimeout(function() {
       displayOnScreen('They are awesome');
@@ -146,13 +153,17 @@ var sendTest = function() {
     if (isError) {
       error = '404 internet not found';
       displayOnScreen(error);
-      typed = '';
+      setTimeout(function() {
+        resetTests();
+      }, 5000);
       return;
     }
     if (d.message) {
       error = '404 site not found';
       displayOnScreen(error);
-      typed = '';
+      setTimeout(function() {
+        resetTests();
+      }, 5000);
       return;
     }
     // console.log(d);
