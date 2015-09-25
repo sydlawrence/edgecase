@@ -130,3 +130,6 @@ stdin.on( 'data', function( key ){
   displayString();
 
 });
+
+
+displayOnScreen('Ready...');
