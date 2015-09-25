@@ -1,4 +1,7 @@
 var exec = require('child_process').exec;
+var api = require('./modules/api');
+var printer = require('./print');
+var stdin = process.stdin;
 
 var pythonExec = function(str, arg) {
   var cmd = 'python ' + __dirname + '/' + str + '.py "' + arg + '"';
@@ -7,35 +10,12 @@ var pythonExec = function(str, arg) {
   });
 };
 
-var fadeLights = function(start, end, timeout, cb) {
-  var begin = (new Date()).getTime();
-  var step = (end - start) / (timeout / 10);
-  strength = start;
-  var loop = function() {
-    pythonExec('lights', strength);
-    if (strength >= end) {
-      if (cb) {
-        cb();
-      }
-      return;
-    }
-    strength += step;
-    setTimeout(function() {
-      loop();
-    }, 10);
-  }
-
-  loop();
-};
-
 var displayOnScreen = function(str) {
   pythonExec('screen', str);
   process.stdout.write( str + '\n' );
 };
 
-var api = require('./api');
-var printer = require('./print');
-var stdin = process.stdin;
+
 
 // without this, we would only get streams once enter is pressed
 stdin.setRawMode( true );
@@ -94,19 +74,24 @@ var formatTestFail = function(test) {
   return test.data;
 };
 
+var toPrint = '';
+var error = false;
+var passed = 0;
 var sendTest = function() {
-  var toPrint = '';
-  console.log('RUNNING TESTS on ' + typed);
+  toPrint = '';
+  error = '';
+  passed = 0;
   var isHTTPS = false;
-  pythonExec('smoke', 10);
   api.test(typed, isHTTPS, function(d, isError) {
     if (isError) {
-      displayOnScreen('No internet?');
+      error = '404 internet not found';
+      displayOnScreen(error);
       typed = '';
       return;
     }
     if (d.message) {
-      displayOnScreen('Not a valid URL');
+      error = '404 site not found';
+      displayOnScreen(error);
       typed = '';
       return;
     }
@@ -114,6 +99,7 @@ var sendTest = function() {
     var iterator = 1;
     for (var i in d.results) {
       if (d.results[i].passed) {
+        passed++;
         toPrint += '\n\nTEST ' + iterator + ' PASSED (' + i + ')\n';
       }
       else {
@@ -123,21 +109,65 @@ var sendTest = function() {
       iterator++;
     }
 
-    console.log('COMPLETED TESTS');
-    printer.print(toPrint);
     typed = '';
   });
+  startInitSequence();
+};
+
+startInitSequence = function() {
+  displayOnScreen('Initiating');
+  pythonExec('smoke', 10);
+
+  setTimeout(function() {
+    if (!error) {
+      displayOnScreen('Beep');
+    }
+  }, 5000);
+
+  setTimeout(function() {
+    if (!error) {
+      displayOnScreen('Burp');
+    }
+  }, 10000);
+
+  setTimeout(function() {
+    if (!error) {
+      displayOnScreen('Beep beep');
+    }
+  }, 15000);
+
+  setTimeout(function() {
+    if (!error) {
+      displayOnScreen('Processing');
+    }
+  }, 20000);
+
+  setTimeout(function() {
+    if (error) {
+      return;
+    }
+    printer.print(toPrint);
+
+    displayOnScreen('You passed ' + passed + '/6');
+    if (passed === 6) {
+      setTimeout(function() {
+        displayOnScreen('Everything is 200 OK');
+      }, 2000);
+    }
+  }, 25000);
 };
 
 // typed = 'nfb.ca';
 // sendTest();
 
+var resetTests = function() {
+  typed = '';
+  displayOnScreen('Hello... I am Admiral Edge Case');
+}
 
 var displayString = function() {
   displayOnScreen( typed );
 }
-
-
 
 // on any data into stdin
 stdin.on( 'data', function( key ){
@@ -151,6 +181,7 @@ stdin.on( 'data', function( key ){
   // ctrl-c ( end of text )
   if (key === "\u000d") {
     sendTest();
+    displayOnScreen('Prepare init sequence');
     return;
   }
   if ( key === '\u0003' ) {
@@ -165,12 +196,12 @@ stdin.on( 'data', function( key ){
 
   typed += key;
   displayString();
-
 });
 
+resetTests();
 
-displayOnScreen('Ready...');
+pythonExec('lights', 127);
+setTimeout(function() {
+  pythonExec('lights', 0);
+}, 3000);
 
-fadeLights(0, 128, 3000, function() {
-  fadeLights(128, 0, 3000);
-});
