@@ -4,7 +4,6 @@ var printer = require('./print');
 var stdin = process.stdin;
 
 var pythonExec = function(str, arg) {
-  return;
   var cmd = 'sudo python ' + __dirname + '/' + str + '.py "' + arg + '"';
   exec(cmd, function(error, stdout, stderr) {
     process.stdout.write(stdout);
@@ -15,7 +14,6 @@ var displayOnScreen = function(str) {
   if (str.length > 40) {
     str = str.substring(0, 39);
   }
-  console.log(str);
   pythonExec('screen', str);
   process.stdout.write( str + '\n' );
 };
