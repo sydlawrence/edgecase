@@ -125,39 +125,63 @@ startInitSequence = function() {
     if (!error) {
       displayOnScreen('Beep');
     }
-  }, 5000);
+  }, 4000);
 
   setTimeout(function() {
     if (!error) {
       displayOnScreen('Burp');
     }
-  }, 10000);
+  }, 8000);
 
   setTimeout(function() {
     if (!error) {
       displayOnScreen('Beep beep');
     }
-  }, 15000);
+  }, 12000);
 
   setTimeout(function() {
     if (!error) {
       displayOnScreen('Processing');
     }
-  }, 20000);
+  }, 16000);
+
+  setTimeout(function() {
+    if (!error) {
+      displayOnScreen('Processing.');
+    }
+  }, 16000);
+
+  setTimeout(function() {
+    if (!error) {
+      displayOnScreen('Processing..');
+    }
+  }, 17000);
+
+  setTimeout(function() {
+    if (!error) {
+      displayOnScreen('Processing...');
+    }
+  }, 18000);
 
   setTimeout(function() {
     if (error) {
       return;
     }
     printer.print(toPrint);
-
-    displayOnScreen('You passed ' + passed + '/6');
+    var msg = 'Could do better';
+    if (passed === 6) {
+      msg = 'Perfecto';
+    }
+    if (passed < 3) {
+      msg = 'Down right awful';
+    }
+    displayOnScreen('Passed ' + passed + '/6 tests   ' + msg);
     if (passed === 6) {
       setTimeout(function() {
         displayOnScreen('Everything is 200 OK');
       }, 2000);
     }
-  }, 25000);
+  }, 19000);
 };
 
 // typed = 'nfb.ca';
@@ -165,7 +189,7 @@ startInitSequence = function() {
 
 var resetTests = function() {
   typed = '';
-  displayOnScreen('Hello... I am Admiral Edge Case');
+  displayOnScreen('Hello... I am Admiral Edge Case! Begin.');
 }
 
 var displayString = function() {
