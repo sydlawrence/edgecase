@@ -4,7 +4,7 @@ var printer = require('./print');
 var stdin = process.stdin;
 
 var pythonExec = function(str, arg) {
-  var cmd = 'python ' + __dirname + '/' + str + '.py "' + arg + '"';
+  var cmd = 'sudo python ' + __dirname + '/' + str + '.py "' + arg + '"';
   exec(cmd, function(error, stdout, stderr) {
     process.stdout.write(stdout);
   });
