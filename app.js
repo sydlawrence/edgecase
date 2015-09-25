@@ -126,7 +126,10 @@ var sendTest = function() {
   }
 
   if (typed.toLowerCase() === 'hal') {
-    displayOnScreen('I\'m sorry Dave. I\'m afraid I can\'t fo that');
+    displayOnScreen('I\'m sorry Dave.')
+    setTimeout(function() {
+      displayOnScreen('I\'m afraid I can\'t do that');
+    }, 2500);
     setTimeout(function() {
       resetTests();
     }, 5000);
