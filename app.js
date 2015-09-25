@@ -92,6 +92,13 @@ var sendTest = function() {
     }, 5000);
     return;
   }
+  if (typed === 'help') {
+    displayOnScreen('It\'s simple, just enter a domain');
+    // setTimeout(function() {
+    //   resetTests();
+    // }, 5000);
+    return;
+  }
   if (typed.toLowerCase() === 'rick astley' || typed.toLowerCase() === 'rickastley') {
     displayOnScreen('Never gonna give you up');
     setTimeout(function() {
@@ -245,7 +252,7 @@ startInitSequence = function() {
 
 var resetTests = function() {
   typed = '';
-  displayOnScreen('Hello... I am Admiral Edge Case! Begin');
+  displayOnScreen('Hello... I\'m Admiral Edge Case! Begin');
 }
 
 var displayString = function() {
