@@ -123,19 +123,19 @@ startInitSequence = function() {
 
   setTimeout(function() {
     if (!error) {
-      displayOnScreen('Beep');
+      displayOnScreen('Beep.');
     }
   }, 4000);
 
   setTimeout(function() {
     if (!error) {
-      displayOnScreen('Burp');
+      displayOnScreen('Beep. Burp.');
     }
   }, 8000);
 
   setTimeout(function() {
     if (!error) {
-      displayOnScreen('Beep beep');
+      displayOnScreen('Beep. Burp. Beep beep.');
     }
   }, 12000);
 
@@ -149,19 +149,19 @@ startInitSequence = function() {
     if (!error) {
       displayOnScreen('Processing.');
     }
-  }, 16000);
+  }, 17000);
 
   setTimeout(function() {
     if (!error) {
       displayOnScreen('Processing..');
     }
-  }, 17000);
+  }, 18000);
 
   setTimeout(function() {
     if (!error) {
       displayOnScreen('Processing...');
     }
-  }, 18000);
+  }, 19000);
 
   setTimeout(function() {
     if (error) {
@@ -175,13 +175,13 @@ startInitSequence = function() {
     if (passed < 3) {
       msg = 'Down right awful';
     }
-    displayOnScreen('Passed ' + passed + '/6 tests   ' + msg);
+    displayOnScreen('Passed ' + passed + '/6 tests    ' + msg);
     if (passed === 6) {
       setTimeout(function() {
         displayOnScreen('Everything is 200 OK');
       }, 2000);
     }
-  }, 19000);
+  }, 20000);
 };
 
 // typed = 'nfb.ca';
