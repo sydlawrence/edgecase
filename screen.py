@@ -13,11 +13,12 @@ for arg in sys.argv:
   if arg != __file__:
     toPrint = arg
 
+toPrint = toPrint + "#"
+
 print "updating display"
 for c in bytearray(toPrint):
         bus.write_byte(screen_addr, c)
 
-bus.write_byte(screen_addr, "#")
 
 
 print toPrint
