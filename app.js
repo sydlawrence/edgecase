@@ -1,3 +1,7 @@
+var displayOnScreen = function(str) {
+  process.stdout.write( str + '\n' );
+}
+
 var api = require('./api');
 var printer = require('./print');
 var stdin = process.stdin;
@@ -63,7 +67,15 @@ var sendTest = function() {
   var toPrint = '';
   console.log('RUNNING TESTS on ' + typed);
   var isHTTPS = false;
-  api.test(typed, isHTTPS, function(d) {
+  api.test(typed, isHTTPS, function(d, isError) {
+    if (isError) {
+      displayOnScreen('No internet?');
+      return;
+    }
+    if (d.message) {
+      displayOnScreen('Not a valid URL');
+      return;
+    }
     // console.log(d);
     var iterator = 1;
     for (var i in d.results) {
@@ -88,8 +100,10 @@ var sendTest = function() {
 
 
 var displayString = function() {
-  process.stdout.write( typed + '\n' );
+  displayOnScreen( typed );
 }
+
+
 
 // on any data into stdin
 stdin.on( 'data', function( key ){

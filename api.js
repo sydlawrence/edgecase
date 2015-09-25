@@ -11,6 +11,10 @@ module.exports.query = function(url, isHTTPS, cb) {
 
 module.exports.test = function(url, isHTTPS, cb) {
   this.query(url, isHTTPS, function(error, response, body) {
+    if (error) {
+      cb(undefined, true)
+      return;
+    }
     body = JSON.parse(body);
     cb(body);
   });
