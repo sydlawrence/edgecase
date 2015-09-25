@@ -7,7 +7,7 @@ module.exports.print = function(str) {
   str += '\n\n\n';
 
   if (actualPrint) {
-    var cmd = 'python print.py "' + str + '"';
+    var cmd = 'python ' + __dirname + '/print.py "' + str + '"';
 
     exec(cmd, function(error, stdout, stderr) {
       console.log(stdout);
