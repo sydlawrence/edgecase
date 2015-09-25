@@ -85,6 +85,53 @@ var sendTest = function() {
   error = '';
   passed = 0;
   var isHTTPS = false;
+  if (typed === 'microsoft.com') {
+    displayOnScreen('You cheeky scoundrel');
+    setTimeout(function() {
+      resetTests();
+    }, 5000);
+    return;
+  }
+  if (typed.toLowerCase() === 'rick astley' || typed.toLowerCase() === 'rickastley') {
+    displayOnScreen('Never gonna give you up');
+    setTimeout(function() {
+      displayOnScreen('Never gonna let you down');
+    }, 2500);
+    setTimeout(function() {
+      displayOnScreen('Never gonna run around and desert you');
+    }, 5000);
+    setTimeout(function() {
+      displayOnScreen('Never gonna make you cry');
+    }, 7500);
+    setTimeout(function() {
+      displayOnScreen('Never gonna say goodbye');
+    }, 10000);
+    setTimeout(function() {
+      displayOnScreen('Never gonna tell a lie and hurt you');
+    }, 12500);
+    setTimeout(function() {
+      resetTests();
+    }, 15000);
+    return;
+  }
+  if (typed === 'wemakeawesomesh.it') {
+    displayOnScreen('They made me');
+    setTimeout(function() {
+      displayOnScreen('They are awesome');
+    }, 2500);
+    setTimeout(function() {
+      resetTests();
+    }, 5000);
+    return;
+  }
+
+  if (typed === 'hal') {
+    displayOnScreen('I\'m sorry Dave. I\'m afraid I can\'t fo that');
+    setTimeout(function() {
+      resetTests();
+    }, 5000);
+    return;
+  }
   api.test(typed, isHTTPS, function(d, isError) {
     if (isError) {
       error = '404 internet not found';
@@ -184,6 +231,9 @@ startInitSequence = function() {
         displayOnScreen('Everything is 200 OK');
       }, 2000);
     }
+    setTimeout(function() {
+      resetTests();
+    }, 10000);
   }, 20000);
 };
 
