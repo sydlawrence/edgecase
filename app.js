@@ -35,7 +35,7 @@ stdin.resume();
 stdin.setEncoding( 'UTF-8' );
 
 var waiting = false;
-var waitingForInput = false;
+var waitingForInput = true;
 var typed = '';
 
 var formatTestFail = function(test) {
