@@ -12,8 +12,13 @@ all_down = True
 for pin in pins:
 	if GPIO.input(pin):
 		all_up = False
-    print "False"
 	else:
-    print "True"
+                all_down = False
 
+if all_up:
+        print "True"
+elif all_down:
+        print "False"
+else:
+        print "Mix"
 
