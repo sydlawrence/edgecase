@@ -24,3 +24,8 @@ for i in range(0, loopCount):
     mcp.output(i, 1)
     time.sleep(0.1)
     mcp.output(i, 0)
+
+
+for i in range(0, loopCount):
+  for i in [0, 1, 2, 3, 4, 5]:
+    mcp.output(i, 1)
