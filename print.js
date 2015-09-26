@@ -1,6 +1,6 @@
 var exec = require('child_process').exec;
 
-var actualPrint = false;
+var actualPrint = true;
 
 module.exports.print = function(str) {
   str += '\n\n\nThanks for popping by!\nFind out more at\nhttp://dev.modern.ie';
