@@ -8,6 +8,9 @@ for arg in sys.argv:
   if arg != __file__:
     loopCount = arg
 
+loopCount = int(loopCount)
+
+
 mcp = Adafruit_MCP230XX(busnum = 1, address = 0x20, num_gpios = 16)
 
 for i in range(0, 16):

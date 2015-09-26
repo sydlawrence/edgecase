@@ -206,7 +206,7 @@ startInitSequence = function() {
   displayOnScreen('Initialising');
   pythonExec('smoke', 10);
 
-  pythonExec('animateleds', 40);
+  pythonExec('animateleds', 4);
 
   setTimeout(function() {
     if (!error) {
