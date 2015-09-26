@@ -12,9 +12,8 @@ all_down = True
 for pin in pins:
 	if GPIO.input(pin):
 		all_up = False
+    print "False"
 	else:
-		all_down = False
+    print "True"
 
-print "All up = ", all_up
-print "All down = ", all_down
 

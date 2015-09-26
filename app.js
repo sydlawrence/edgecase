@@ -199,7 +199,12 @@ var sendTest = function() {
     typed = '';
   });
 
-  startInitSequence();
+  switchesChanged = function() {
+    if (allSwitchesPrimed) {
+      startInitSequence();
+      switchesChanged = function(){};
+    }
+  };
 };
 
 startInitSequence = function() {
@@ -341,10 +346,19 @@ setTimeout(function() {
 }, 3000);
 
 setInterval(function() {
-  var newSwitches = false;
-  if (newSwitches !== allSwitchesPrimed) {
-    allSwitchesPrimed = newSwitches;
-    switchesChanged();
-  }
+  var cmd = 'sudo python ' + __dirname + '/checkswitches.py';
+  exec(cmd, function(error, stdout, stderr) {
+    var newSwitches = false;
+    if (stdout === "False") {
+      newSwitches = false;
+    }
+    else {
+      newSwitches = true;
+    }
+    if (newSwitches !== allSwitchesPrimed) {
+      allSwitchesPrimed = newSwitches;
+      switchesChanged();
+    }
+  });
 }, 200);
 
