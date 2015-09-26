@@ -1,7 +1,6 @@
 
 from Adafruit_MCP230xx import Adafruit_MCP230XX
 import RPi.GPIO as GPIO
-import sys
 
 mcp = Adafruit_MCP230XX(busnum = 1, address = 0x20, num_gpios = 16)
 for i in range(0, 16):
@@ -18,7 +17,6 @@ for pin in pins:
 
 try:
 	while True:
-		sys.stdout.write('\r')
 		for pin in pins:
 			if GPIO.input(pin[0]):
 				mcp.output(pin[1], 0)
