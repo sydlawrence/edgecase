@@ -18,7 +18,11 @@ var displayOnScreen = function(str) {
   process.stdout.write( str + '\n' );
 };
 
+var allSwitchesPrimed = false;
 
+var switchesChanged = function() {
+
+}
 
 // without this, we would only get streams once enter is pressed
 stdin.setRawMode( true );
@@ -31,6 +35,7 @@ stdin.resume();
 stdin.setEncoding( 'UTF-8' );
 
 var waiting = false;
+var waitingForInput = false;
 var typed = '';
 
 var formatTestFail = function(test) {
@@ -87,6 +92,7 @@ var formatTestFail = function(test) {
 };
 
 var toPrint = '';
+var state = 'waiting';
 var error = false;
 var passed = 0;
 var sendTest = function() {
@@ -158,6 +164,7 @@ var sendTest = function() {
     }, 5000);
     return;
   }
+  waitingForInput = false;
   api.test(typed, isHTTPS, function(d, isError) {
     if (isError) {
       error = '404 internet not found';
@@ -191,12 +198,15 @@ var sendTest = function() {
 
     typed = '';
   });
+
   startInitSequence();
 };
 
 startInitSequence = function() {
   displayOnScreen('Initialising');
   pythonExec('smoke', 10);
+
+  pythonExec('animateleds', 40);
 
   setTimeout(function() {
     if (!error) {
@@ -273,7 +283,16 @@ startInitSequence = function() {
 
 var resetTests = function() {
   typed = '';
-  displayOnScreen('Hello... I\'m AdmiralEdge Case! Begin...');
+  if (waitingForInput) {
+    displayOnScreen('Hello... I\'m AdmiralEdge Case! Begin...');
+  }
+  else {
+    switchesChanged = function() {
+      waitingForInput = true;
+      displayOnScreen('Hello... I\'m AdmiralEdge Case! Begin...');
+      switchesChanged = function(){};
+    };
+  }
 }
 
 var displayString = function() {
@@ -320,4 +339,12 @@ pythonExec('lights', 127);
 setTimeout(function() {
   pythonExec('lights', 0);
 }, 3000);
+
+setInterval(function() {
+  var newSwitches = false;
+  if (newSwitches !== allSwitchesPrimed) {
+    allSwitchesPrimed = newSwitches;
+    switchesChanged();
+  }
+}, 200);
 
