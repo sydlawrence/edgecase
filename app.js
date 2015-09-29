@@ -170,6 +170,7 @@ var sendTest = function() {
       error = '404 internet not found';
       displayOnScreen(error);
       setTimeout(function() {
+        waitingForInput = true;
         resetTests();
       }, 5000);
       return;
@@ -178,6 +179,7 @@ var sendTest = function() {
       error = '404 site not found';
       displayOnScreen(error);
       setTimeout(function() {
+        waitingForInput = true;
         resetTests();
       }, 5000);
       return;
@@ -313,7 +315,16 @@ stdin.on( 'data', function( key ){
     return;
   }
 
+  // console.log(encodeURIComponent(key));
   // ctrl-c ( end of text )
+  if (key === "\u0011") {
+    var cmd = 'sudo halt';
+    displayOnScreen('Shutting down');
+    exec(cmd, function(error, stdout, stderr) {
+      process.stdout.write(stdout);
+    });
+    return;
+  }
   if (key === "\u000d") {
     var prep = sendTest();
     if (prep) {
