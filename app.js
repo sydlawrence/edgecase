@@ -207,6 +207,7 @@ var sendTest = function() {
       switchesChanged = function(){};
     }
   };
+  return true;
 };
 
 startInitSequence = function() {
@@ -359,12 +360,20 @@ setTimeout(function() {
 setInterval(function() {
   var cmd = 'sudo python ' + __dirname + '/checkswitches.py';
   exec(cmd, function(error, stdout, stderr) {
+       stdout = stdout.replace(/^\s+|\s+$/g, '').trim();
+     
+	console.log(stdout);
     var newSwitches = false;
     if (stdout === "False") {
       newSwitches = false;
+     console.log('all down');
+    }
+    else if (stdout === "True") {
+      newSwitches = true;
+console.log('all up');
     }
     else {
-      newSwitches = true;
+      return;
     }
     if (newSwitches !== allSwitchesPrimed) {
       allSwitchesPrimed = newSwitches;
