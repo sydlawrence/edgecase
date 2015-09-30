@@ -215,6 +215,8 @@ var sendTest = function() {
 
 startInitSequence = function() {
   displayOnScreen('Initialising');
+
+  pythonExec('lights', 1);
   pythonExec('smoke', 10);
 
   pythonExec('animateleds', 4);
@@ -262,6 +264,7 @@ startInitSequence = function() {
   }, 19000);
 
   setTimeout(function() {
+    pythonExec('lights', 0);
     if (error) {
       return;
     }
@@ -341,10 +344,6 @@ stdin.on( 'data', function( key ){
     return;
   }
 
-  pythonExec('lights', 127);
-  setTimeout(function() {
-    pythonExec('lights', 0);
-  }, 500);
   if (typed.length >= 40 || key === '#') {
     return;
   }
@@ -354,11 +353,6 @@ stdin.on( 'data', function( key ){
 });
 
 resetTests();
-
-pythonExec('lights', 127);
-setTimeout(function() {
-  pythonExec('lights', 0);
-}, 3000);
 
 setInterval(function() {
   if (shouldUpdateSwitchState) {
