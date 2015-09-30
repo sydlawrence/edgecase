@@ -11,7 +11,7 @@ power = 0
 
 for arg in sys.argv:
   if arg != __file__:
-    power = arg
+    power = int(arg)
 
 bus.write_byte(light_addr, power)
 
