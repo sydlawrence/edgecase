@@ -3,6 +3,8 @@ var api = require('./modules/api');
 var printer = require('./print');
 var stdin = process.stdin;
 
+var shouldUpdateSwitchState = true;
+
 var pythonExec = function(str, arg) {
   var cmd = 'sudo python ' + __dirname + '/' + str + '.py "' + arg + '"';
   exec(cmd, function(error, stdout, stderr) {
@@ -358,6 +360,12 @@ setTimeout(function() {
 }, 3000);
 
 setInterval(function() {
+  if (shouldUpdateSwitchState) {
+     var cmd = 'sudo python ' + __dirname + '/switches.py';
+     exec(cmd, function(error, stdout, stderr) {	
+     });
+  }
+
   var cmd = 'sudo python ' + __dirname + '/checkswitches.py';
   exec(cmd, function(error, stdout, stderr) {
        stdout = stdout.replace(/^\s+|\s+$/g, '').trim();
