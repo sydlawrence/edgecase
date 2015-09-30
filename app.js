@@ -12,6 +12,8 @@ var pythonExec = function(str, arg) {
   });
 };
 
+pythonExec('lights', 0);
+
 var displayOnScreen = function(str) {
   if (str.length > 40) {
     str = str.substring(0, 39);
