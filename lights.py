@@ -11,9 +11,13 @@ power = 0
 
 for arg in sys.argv:
   if arg != __file__:
-    power = int(arg)
+	if arg == "1":
+		power = 1
+	else:
+		power = 0
 
-bus.write_byte(light_addr, power)
+for b in bytearray([power]):
+	bus.write_byte(light_addr, b)
 
 
 print "done"
