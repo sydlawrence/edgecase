@@ -101,6 +101,7 @@ var error = false;
 var passed = 0;
 var sendTest = function() {
   toPrint = '';
+  toPrint = '\n\n' + typed + 'test results:';
   error = '';
   passed = 0;
   var isHTTPS = false;
@@ -358,14 +359,14 @@ resetTests();
 setInterval(function() {
   if (shouldUpdateSwitchState) {
      var cmd = 'sudo python ' + __dirname + '/switches.py';
-     exec(cmd, function(error, stdout, stderr) {	
+     exec(cmd, function(error, stdout, stderr) {
      });
   }
 
   var cmd = 'sudo python ' + __dirname + '/checkswitches.py';
   exec(cmd, function(error, stdout, stderr) {
        stdout = stdout.replace(/^\s+|\s+$/g, '').trim();
-     
+
 	console.log(stdout);
     var newSwitches = false;
     if (stdout === "False") {
