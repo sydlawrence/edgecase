@@ -119,6 +119,13 @@ var sendTest = function() {
     }, 5000);
     return;
   }
+    if (typed.toLowerCase() === 'apple.com') {
+    displayOnScreen('I do not like fruit');
+    setTimeout(function() {
+      resetTests();
+    }, 5000);
+    return;
+  }
   if (typed.toLowerCase() === 'help') {
     displayOnScreen('It\'s simple, just enter a domain');
     setTimeout(function() {
