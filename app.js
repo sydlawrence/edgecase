@@ -6,6 +6,8 @@ var stdin = process.stdin;
 
 var shouldUpdateSwitchState = true;
 
+ sounds.playModem();
+
 var pythonExec = function(str, arg) {
   var cmd = 'sudo python ' + __dirname + '/' + str + '.py "' + arg + '"';
   exec(cmd, function(error, stdout, stderr) {
@@ -225,7 +227,7 @@ var sendTest = function() {
 
 startInitSequence = function() {
   displayOnScreen('Initialising');
-  sounds.playModem();
+ 
   pythonExec('lights', 1);
   pythonExec('smoke', 10);
 
