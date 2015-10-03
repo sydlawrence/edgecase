@@ -6,5 +6,6 @@ module.exports.playModem = function() {
 module.exports.play = function(file) {	
 	var cmd = 'sudo aplay ' + __dirname + '/' + file
 	exec(cmd, function() {    
+		console.log("cmd");
     });
 };
