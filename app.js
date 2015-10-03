@@ -1,5 +1,6 @@
 var exec = require('child_process').exec;
 var api = require('./modules/api');
+var sounds = require('./modules/sounds');
 var printer = require('./print');
 var stdin = process.stdin;
 
@@ -224,11 +225,13 @@ var sendTest = function() {
 
 startInitSequence = function() {
   displayOnScreen('Initialising');
-
+  sounds.playModem();
   pythonExec('lights', 1);
   pythonExec('smoke', 10);
 
   pythonExec('animateleds', 4);
+  
+  
 
   setTimeout(function() {
     if (!error) {
