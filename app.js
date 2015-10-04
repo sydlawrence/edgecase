@@ -179,6 +179,16 @@ var sendTest = function() {
     }, 5000);
     return;
   }
+  if (typed.toLowerCase() === 'pornhub.com') {
+    displayOnScreen('Initialising')
+    setTimeout(function() {
+      displayOnScreen('You sick puppy');
+    }, 1500);
+    setTimeout(function() {
+      resetTests();
+    }, 4000);
+    return;
+  }
   waitingForInput = false;
   api.test(typed, isHTTPS, function(d, isError) {
     if (isError) {
