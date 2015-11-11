@@ -324,12 +324,12 @@ startInitSequence = function() {
 var resetTests = function() {
   typed = '';
   if (waitingForInput) {
-    displayOnScreen('Hello... I\'m AdmiralEdge Case! Begin...');
+    displayOnScreen('Hello. I\'m MicrosoftEdge Case! Begin...');
   }
   else {
     switchesChanged = function() {
       waitingForInput = true;
-      displayOnScreen('Hello... I\'m AdmiralEdge Case! Begin...');
+      displayOnScreen('Hello. I\'m MicrosoftEdge Case! Begin...');
       switchesChanged = function(){};
     };
   }
