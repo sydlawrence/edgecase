@@ -168,6 +168,17 @@ var sendTest = function() {
     }, 5000);
     return;
   }
+  
+    if (typed.toLowerCase() === 'stacked2015.com') {
+    displayOnScreen('The people are awesome');
+    setTimeout(function() {
+      displayOnScreen('Is Awesome');
+    }, 2500);
+    setTimeout(function() {
+      resetTests();
+    }, 5000);
+    return;
+  }
 
   if (typed.toLowerCase() === 'hal') {
     displayOnScreen('I\'m sorry Dave.')
