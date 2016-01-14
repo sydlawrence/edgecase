@@ -123,6 +123,16 @@ var sendTest = function() {
     return;
   }
   
+    if (typed.toLowerCase() === 'google.com') {
+    displayOnScreen('Did you mean Bing?');
+    setTimeout(function() {
+      resetTests();
+    }, 5000);
+    return;
+  }
+  
+  
+  
    if (typed.toLowerCase() === 'modem') {
     displayOnScreen('modem');
     sounds.playModem();
