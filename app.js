@@ -155,6 +155,15 @@ var sendTest = function() {
     return;
   }
   
+  if (typed.toLowerCase() === 'vader') {
+    displayOnScreen('I am your father');
+    sounds.playVader();
+    setTimeout(function() {
+      resetTests();
+    }, 5000);
+    return;
+  }
+  
   
   
     if (typed.toLowerCase() === 'apple.com') {
