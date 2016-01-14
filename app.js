@@ -122,6 +122,18 @@ var sendTest = function() {
     }, 5000);
     return;
   }
+  
+   if (typed.toLowerCase() === 'modem') {
+    displayOnScreen('modem');
+    sounds.playModem();
+    setTimeout(function() {
+      resetTests();
+    }, 5000);
+    return;
+  }
+  
+  
+  
     if (typed.toLowerCase() === 'apple.com') {
     displayOnScreen('I do not like fruit');
     setTimeout(function() {
