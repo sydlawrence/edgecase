@@ -4,7 +4,7 @@ module.exports.playModem = function() {
 };
 
 module.exports.playVader = function() {	
-	this.play('sounds/modem.wav')
+	this.play('sounds/imperial_march.wav')
 };
 
 module.exports.play = function(file) {	
