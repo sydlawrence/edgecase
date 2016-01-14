@@ -169,10 +169,10 @@ var sendTest = function() {
     return;
   }
   
-    if (typed.toLowerCase() === 'stacked2015.com') {
-    displayOnScreen('The people are awesome');
+    if (typed.toLowerCase() === 'code.visualstudio.com') {
+    displayOnScreen('That is awesome');
     setTimeout(function() {
-      displayOnScreen('Is Awesome');
+      displayOnScreen('Ask Giles');
     }, 2500);
     setTimeout(function() {
       resetTests();
