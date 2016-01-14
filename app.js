@@ -145,7 +145,6 @@ var sendTest = function() {
   }
   
   
-  
    if (typed.toLowerCase() === 'modem') {
     displayOnScreen('modem');
     sounds.playModem();
@@ -157,7 +156,7 @@ var sendTest = function() {
   
   if (typed.toLowerCase() === 'vader') {
     displayOnScreen('I am your father');
-    sounds.playVader();
+    sounds.play('sounds/imperial_march.wav');
     setTimeout(function() {
       resetTests();
     }, 5000);
