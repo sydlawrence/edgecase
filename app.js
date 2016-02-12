@@ -136,6 +136,8 @@ var sendTest = function() {
     return;
   }
   
+  
+  
     if (typed.toLowerCase() === 'google.com') {
     displayOnScreen('Did you mean Bing?');
     setTimeout(function() {
@@ -169,6 +171,14 @@ var sendTest = function() {
     setTimeout(function() {
       resetTests();
     }, 5000);
+    return;
+  }
+  
+   if (typed.toLowerCase() === 'startup') {
+    sounds.playXP();
+    setTimeout(function() {
+      resetTests();
+    }, 1000);
     return;
   }
   
