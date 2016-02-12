@@ -163,6 +163,33 @@ var sendTest = function() {
     return;
   }
   
+  if (typed.toLowerCase() === 'microsoft.com 1996') {
+    displayOnScreen('CHECK LOG 1996');
+    sounds.playDrWho();
+    setTimeout(function() {
+      resetTests();
+    }, 5000);
+    return;
+  }
+  
+  if (typed.toLowerCase() === 'microsoft.com 2020') {
+    displayOnScreen('CHECK LOG 2020');
+    sounds.playHitchhickers();
+    setTimeout(function() {
+      resetTests();
+    }, 5000);
+    return;
+  }
+  
+  if (typed.toLowerCase() === 'microsoft.com 2018') {
+    displayOnScreen('CHECK LOG 2018');
+    sounds.playCrystal();
+    setTimeout(function() {
+      resetTests();
+    }, 5000);
+    return;
+  }
+  
   
   
     if (typed.toLowerCase() === 'apple.com') {
